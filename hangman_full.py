@@ -3,10 +3,10 @@ import random
 
 class HangmanGame:
     def __init__(self, numLetters=0):
-        self.word = self.chooseWord(numLetters).upper()
-        self.guessedWord = ["_"] * len(self.word)
-        self.nWrongGuessesLeft = 5
-        self.guessedLetters = []
+        self.word = self.chooseWord(numLetters).upper() # The word the player is trying to guess
+        self.guessedWord = ["_"] * len(self.word) # The state of the Hangman Board right now
+        self.nWrongGuessesLeft = 5 # How many wrong guesses the player has left
+        self.guessedLetters = [] # What letters the player has guessed so far. 
 
     def chooseWord(self, numLetters=0):
         englishWords = utils.getEnglishWordList()
@@ -20,12 +20,14 @@ class HangmanGame:
         return word
 
     def displayWord(self):
+        # Print the hangman board. 
         print("\nCURRENT STATE:")
         for i in self.guessedWord:
             print(i, end= ' ')
         print("")
 
     def displayGuesses(self):
+        # Print the guesses that the player has already made.
         if len(self.guessedLetters) == 0:
             print("You have not guessed any letters yet.", end=" ")
         else:
@@ -35,14 +37,18 @@ class HangmanGame:
         print("")
 
     def validateInput(self, inp):
+        # Make sure inp is a string of length 1 and is an alphabet. 
         return len(inp) == 1 and inp.isalpha()
     
     def fillInWord(self, guess):
+        # 'guess' is the letter the player has guessed. 
+        # update the state of the board (self.guessedWord) to include this guess. 
         for i in range(len(self.word)):
             if self.word[i] == guess:
                 self.guessedWord[i] = guess
 
     def playGame(self):
+        # This is the gameplay. 
         while "_" in self.guessedWord and self.nWrongGuessesLeft > 0:
             self.displayWord()
             self.displayGuesses()
