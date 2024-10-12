@@ -1,4 +1,5 @@
 import random
+import utils.utils as utils
 
 class TicTacToeGame:
     def __init__(self, numPlayers=2):
@@ -13,24 +14,20 @@ class TicTacToeGame:
         for i in range(0, 3):
             if self.board[i][0] == self.board[i][1] == self.board[i][2] \
                 and self.board[i][0] != " ":
-                print("win by row")
                 return self.board[i][0]
             
         # Check columns
         for i in range(0, 3):
             if self.board[0][i] == self.board[1][i] == self.board[2][i] \
                 and self.board[0][i] != " ":
-                print("win by col")
                 return self.board[0][i]
             
         # Check diagonals
         if self.board[0][0] == self.board[1][1] == self.board[2][2] \
             and self.board[1][1] != " ":
-            print("win by diag")
             return self.board[0][0]
         if self.board[0][2] == self.board[1][1] == self.board[2][0] \
             and self.board[1][1] != " ":
-            print("win by diag1")
             return self.board[0][0]
     
         return None
@@ -104,10 +101,15 @@ class TicTacToeGame:
 
         self.displayBoard()
         winner = self.checkForWinner()
-        if not self.movesPossible():
-            print("It's a draw!")
+        if winner == "X":
+            print("Player 1 wins!")
+        elif winner == "O":
+            if self.numPlayers == 1:
+                print("Computer wins!")
+            else:
+                print("Player 2 wins!")
         else:
-            print(f"Player {winner} wins!")
+            print("It's a draw!")
 
 if __name__ == "__main__":
     # While the player is okay with playing, play the game. 
@@ -123,14 +125,4 @@ if __name__ == "__main__":
         game = TicTacToeGame(int(nPlayers))
         game.playGame()
 
-        validInput = False
-        while not validInput:
-            playagain = input("\n\nThat was fun! play again? (y/n)\n")
-            if playagain.lower() == "yes" or playagain.lower() == "y":
-                validInput = True
-            elif playagain.lower() == "no" or playagain.lower() == "n":
-                validInput = True
-                playing = False
-                print("Thanks for playing! Hope to see you soon. ")
-            else: 
-                print("Please enter a valid answer.")
+        playing = utils.playAgain()
