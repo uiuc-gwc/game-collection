@@ -1,10 +1,14 @@
 from colorama import init as colorama_init
 from colorama import Fore, Back, Style
 
-def getEnglishWordList(length=None):
-    with open("utils/dwyl-english-words.txt") as file:
-        lines = [line.rstrip() for line in file \
-                 if (length == None or len(line.rstrip()) == length)]
+def getEnglishWordList(length=None, common=True):
+    if common:
+        wordsFile = "utils/google-10000-usa-common.txt"
+    else:
+        wordsFile = "utils/dwyl-english-words.txt"
+    with open(wordsFile) as file:
+        lines = [line.strip() for line in file \
+                 if (length == None or len(line.strip()) == length)]
     return lines
 
 def colorText(text, color):
