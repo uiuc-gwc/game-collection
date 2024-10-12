@@ -1,6 +1,7 @@
-def getEnglishWordList():
+def getEnglishWordList(length=None):
     with open("utils/dwyl-english-words.txt") as file:
-        lines = [line.rstrip() for line in file]
+        lines = [line.rstrip() for line in file \
+                 if (length == None or len(line.rstrip()) == length)]
     return lines
 
 def playAgain():
