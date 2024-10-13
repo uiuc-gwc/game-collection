@@ -13,8 +13,10 @@ class Wordle:
         index = random.randint(0, len(englishWords)-1)
         return englishWords[index]
     
-    # return True if the player has won the game, 
+    # return True if the player has guessed the word correctly,
     # False if the game isn't finished (or the player didn't win)
+    # Do not worry about number of guesses 
+    # Just figure out if the player has guessed the word correctly 
     def wonGame(self):
         if self.word in self.guessedWords:
             return True
@@ -50,8 +52,10 @@ class Wordle:
         print()
 
     # return True if the Wordle game has finished, False otherwise. 
+    # Make sure to consider the number of guesses. 
     def gameFinished(self):
-        return self.nGuessesLeft > 0 and not self.wonGame()
+        return self.nGuessesLeft <= 0 or \
+            (self.nGuessesLeft > 0 and self.wonGame())
     
     # return True if the player's guess (guess variable) is valid
     # return False if the player's guess is invalid. 
@@ -59,7 +63,7 @@ class Wordle:
         return len(guess) == 5 and guess.lower() in self.fullWordList
 
     def playGame(self):
-        # print(f"{self.word=}") # Uncomment this line to see the answer. 
+        print(f"{self.word=}") # Uncomment this line to see the answer. 
 
         # Repeat until the player has finished the game.
         while not self.gameFinished():
