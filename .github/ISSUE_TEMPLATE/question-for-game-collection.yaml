@@ -1,0 +1,41 @@
+name: Question from one of the games in the game collection
+description: Use this template if you have a question from the game-collection exercises.
+title: "DESCRIPTIVE SUMMARY OF WHAT'S GOING ON"
+labels: ["help wanted"]
+body:
+  - type: input
+    attributes:
+      label: Game/File name
+      description: What game or file are you on?
+      placeholder: 
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Description of the problem
+      description: What's going on? (Please be specific - "it's not working" is not specific. )
+      placeholder: Enter a description of your problem here.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Your code
+      description: Please paste your code here. For better legibility, please type " ``` " before and after your code so the code is formatted properly. (This is the ` button right next to the 1 on your keyboard) 
+      placeholder: For better legibility, please type " ``` " before and after your code so the code is formatted properly. (This is the ` button right next to the 1 on your keyboard) 
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Errors
+      description: Please paste the error you got. 
+      placeholder: For better legibility, please use code blocks when pasting. 
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: More details (optional)
+      description: Add any additional details here. 
+      placeholder: For better legibility, please use code blocks when pasting. 
+    validations:
+      required: false
+      
