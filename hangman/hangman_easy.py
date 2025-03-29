@@ -49,7 +49,7 @@ class HangmanGame:
 
     def playGame(self):
         # This is the gameplay. 
-        while #[TODO: This represents the game continuing. How do we know when to continue the game?]:
+        while #[TODO: This represents the game continuing. How do we know when to continue the game?]: DO THIS FIRST. 
             self.displayWord()
             self.displayGuesses()
             guess = input("What letter will you guess? ").upper()
@@ -58,15 +58,21 @@ class HangmanGame:
                     print("You have already guessed this letter!")
                 else:
                     self.guessedLetters.append(guess)
-                    #[TODO: What to do when the player makes a valid guess?]
+                    #[TODO: What to do when the player makes a valid guess?] # DO THIS SECOND
+                    # note: this includes both correct and incorrect guesses
             else:
                 print("Sorry, that was not a valid input! ")
-        if #[TODO: PLAYER HAS RUN OUT OF GUESSES]:
-            print("Sorry! You have run out of guesses. The word was:")
-            print(self.word)
-        if #[TODO: PLAYER HAS GUESSED THE WHOLE WORD]:
-            self.displayWord()
-            print("Congratulations! You guessed the word! ")
+
+
+        # UNCOMMENT THIS AND DO THIS FOURTH. 
+        # if #[TODO: PLAYER HAS RUN OUT OF GUESSES]:
+        #     print("Sorry! You have run out of guesses. The word was:")
+        #     print(self.word)
+
+        # UNCOMMENT THIS AND DO THIS THIRD.
+        # if #[TODO: PLAYER HAS GUESSED THE WHOLE WORD]:
+        #     self.displayWord()
+        #     print("Congratulations! You guessed the word! ")
 
 if __name__ == "__main__":
     # While the player is okay with playing, play the game. 

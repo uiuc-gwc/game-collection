@@ -36,7 +36,7 @@ class HangmanGame:
                 print(i, end=' ')
         print("")
 
-    def validateInput(self, inp):
+    def validateInput(self, inp): # DO THIS SECOND
         # TODO: Make sure inp is a string of length 1 and is an alphabet. 
         pass # remove this line when implementing this function        
     
@@ -48,22 +48,26 @@ class HangmanGame:
 
     def playGame(self):
         # This is the gameplay. 
-        while #[TODO: This represents the game continuing. How do we know when to continue the game?]:
+        while #[TODO: This represents the game continuing. How do we know when to continue the game?]:  DO THIS FIRST
             self.displayWord()
             self.displayGuesses()
             guess = input("What letter will you guess? ").upper()
             if self.validateInput(guess):
-                if #TODO: Check if the player has already guessed the letter:
+                if #TODO: Check if the player has already guessed the letter: # DO THIS THIRD
                     # TODO: Print some error message when the player has already guessed the letter!
                 else:
                     self.guessedLetters.append(guess)
-                    #[TODO: What to do when the player makes a valid guess?]
+                    #[TODO: What to do when the player makes a valid guess?] # DO THIS FOURTH
             else:
                 print("Sorry, that was not a valid input! ")
-        if #[TODO: PLAYER HAS RUN OUT OF GUESSES]:
+
+        # DO THIS 6TH
+        # if #[TODO: PLAYER HAS RUN OUT OF GUESSES]:
             # Print an error message for when the player has run out of guesses
-        if #[TODO: PLAYER HAS GUESSED THE WHOLE WORD]:
-            # print some congratulations for when the player succeeds! 
+
+        # DO THIS 5TH
+        # if #[TODO: PLAYER HAS GUESSED THE WHOLE WORD]:
+        #     # print some congratulations for when the player succeeds! 
 
 if __name__ == "__main__":
     # While the player is okay with playing, play the game. 
